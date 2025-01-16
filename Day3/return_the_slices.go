@@ -29,14 +29,9 @@ Output: Incorrect Indexes
 
 var array = []string{"qwe", "wer", "ert", "rty", "tyu", "yui", "uio", "iop"}
 
-// Validating indexes
 func indexValidation(index1 int, index2 int) bool {
-	if index1 < 0 || index1 > 7 {
+	if index1 < 0 || index1 >= index2 || index2 > len(array) {
 		fmt.Printf("Invalid index1. Please enter index between 0 to %v", len(array))
-		return false
-	}
-	if index2 < 0 || index2 > 7 {
-		fmt.Printf("Invalid index2. Please enter index between 0 to %v", len(array))
 		return false
 	}
 	return true
@@ -45,23 +40,24 @@ func indexValidation(index1 int, index2 int) bool {
 func main() {
 
 	var index1, index2 int
-	fmt.Print("Enter Index1:")
-	fmt.Scan(&index1)
-	fmt.Print("Enter Index2:")
-	fmt.Scan(&index2)
+	fmt.Print("Enter Index1 and Index2: ")
+	_, err := fmt.Scanf("%v %v", &index1, &index2)
+	fmt.Print(err)
 
-	// index validation
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
 	if !indexValidation(index1, index2) {
 		return
 	}
 
 	// slicing operation.
-	var slice1 = array[:index1]
-	var slice2 = array[index1:index2]
+	var slice1 = array[:index1+1]
+	var slice2 = array[index1 : index2+1]
 	var slice3 = array[index2:]
 
 	fmt.Println(slice1)
 	fmt.Println(slice2)
 	fmt.Println(slice3)
-
 }

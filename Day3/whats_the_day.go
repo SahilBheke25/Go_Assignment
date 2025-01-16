@@ -17,16 +17,16 @@ Input: 11
 Output: Not a day
 */
 
-var maap = map[int]string{1: "Monday", 2: "Tuesday", 3: "Wednesday", 4: "Thrusday", 5: "Friday", 6: "Saturday", 7: "Sunday"}
+var days = map[int]string{1: "Monday", 2: "Tuesday", 3: "Wednesday", 4: "Thrusday", 5: "Friday", 6: "Saturday", 7: "Sunday"}
 
 func main() {
 
 	var index int
-	fmt.Print("Enter index between 1 to 8 to get respective day: ")
+	fmt.Print("Enter index between 1 to 7 to get respective day: ")
 	fmt.Scan(&index)
 
 	// Getting respective day stored against given index
-	value, exist := maap[index]
+	value, exist := days[index]
 
 	if exist {
 		fmt.Println("The day against the respective index is:", value)
