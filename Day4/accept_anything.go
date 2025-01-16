@@ -25,6 +25,10 @@ import "fmt"
 
 type AcceptAnything interface{}
 
+func acceptAnything(data interface{}) {
+	fmt.Printf("The object type is: %T, %v \n", data, data)
+}
+
 type Hello struct {
 	message string
 }
@@ -45,16 +49,13 @@ func main() {
 
 	switch option {
 	case 1:
-		AcceptAnything := 4
-		fmt.Printf("The object type is: %T, %v", AcceptAnything, AcceptAnything)
+		acceptAnything(2)
 	case 2:
-		AcceptAnything := "Let it go Sparsh Arora"
-		fmt.Printf("The object type is: %T, %v", AcceptAnything, AcceptAnything)
+		acceptAnything("Let it go Sparsh Arora")
 	case 3:
-		AcceptAnything := true
-		fmt.Printf("The object type is: %T, %v", AcceptAnything, AcceptAnything)
+		acceptAnything(true)
 	case 4:
-		AcceptAnything := Hello{message: "Go with flow Sparsh Arora"}
-		fmt.Printf("The object type is: %T, %v", AcceptAnything, AcceptAnything.message)
+		customDataType := Hello{message: "Go with flow Sparsh Arora"}
+		acceptAnything(customDataType)
 	}
 }
