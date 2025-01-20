@@ -24,8 +24,10 @@ Perimeter of Rectangle: 60
 import "fmt"
 
 type Rectangle struct {
-	length  int
-	breadth int
+	length    int
+	breadth   int
+	area      int
+	perimeter int
 }
 
 func (rec Rectangle) Area() int {
@@ -48,15 +50,12 @@ func main() {
 		return
 	}
 
-	rec := Rectangle{
-		length:  length,
-		breadth: breadth,
-	}
+	rec := Rectangle{}
+	rec.length = length
+	rec.breadth = breadth
+	rec.area = rec.Area()
+	rec.perimeter = rec.Perimeter()
 
-	area := rec.Area()
-	perimeter := rec.Perimeter()
-
-	fmt.Println("Area of the rectangle is:", area)
-	fmt.Println("Perimeter of the rectangle is:", perimeter)
-
+	fmt.Println("Area of the rectangle is:", rec.area)
+	fmt.Println("Perimeter of the rectangle is:", rec.perimeter)
 }

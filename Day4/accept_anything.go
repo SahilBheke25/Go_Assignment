@@ -21,12 +21,24 @@ Custom data type Hello :
 "This is a value of type Hello, <value>"
 */
 
-import "fmt"
-
-type AcceptAnything interface{}
+import (
+	"fmt"
+)
 
 func acceptAnything(data interface{}) {
-	fmt.Printf("The object type is: %T, %v \n", data, data)
+	switch v := data.(type) {
+	case int:
+		fmt.Printf("The object type is: %T, %v \n", v, v)
+	case string:
+		fmt.Printf("The object type is: %T, %v \n", v, v)
+	case bool:
+		fmt.Printf("The object type is: %T, %v \n", v, v)
+	case Hello:
+		fmt.Printf("The object type is: %T, %v \n", v, v.message)
+	default:
+		fmt.Printf("Default case")
+	}
+
 }
 
 type Hello struct {

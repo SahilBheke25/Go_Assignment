@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 /*
 3. The given program takes an integer value as input from the user i.e 1 or 2.
@@ -59,10 +61,16 @@ type Square struct {
 func (square Square) Area() int {
 	return square.side * square.side
 }
+
 func (square Square) Perimeter() int {
 	return 4 * square.side
 }
 
+// Printing the area and perimeter of the quadrilateral chossen by the user.
+func print(quadrilateral Quadrilateral) {
+	fmt.Println("Area:", quadrilateral.Area())
+	fmt.Println("Perimeter:", quadrilateral.Perimeter())
+}
 func main() {
 
 	var option int
@@ -77,19 +85,11 @@ func main() {
 			length:  10,
 			breadth: 20,
 		}
-		areaOfRectangle := rectangle.Area()
-		perimeterOfRectangle := rectangle.Perimeter()
-
-		fmt.Println("Area of rectangle is:", areaOfRectangle)
-		fmt.Println("Perimeter of rectangle is:", perimeterOfRectangle)
+		print(rectangle)
 	} else { // Square Calculation.
 		square := Square{
 			side: 2,
 		}
-		areaOfSquare := square.Area()
-		perimeterOfSquare := square.Perimeter()
-
-		fmt.Println("Area of square is:", areaOfSquare)
-		fmt.Println("Perimeter of square is:", perimeterOfSquare)
+		print(square)
 	}
 }
