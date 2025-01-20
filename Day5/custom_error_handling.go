@@ -31,7 +31,7 @@ item 3, value 6
 
 func accessSlice(slice []int, index int) error {
 	if index < 0 || index >= len(slice) {
-		return fmt.Errorf("length of the slice should be more than index")
+		return fmt.Errorf("Index should be greater than equal to zero and smaller than length of the slice")
 	}
 	fmt.Printf("item %v, value %v\n", index, slice[index])
 	return nil
@@ -40,13 +40,13 @@ func main() {
 	var slice = []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 	var index int
 	fmt.Print("Enter index: ")
-	_, err1 := fmt.Scanf("%v", &index)
-	if err1 != nil {
+	_, err := fmt.Scanf("%v", &index)
+	if err != nil {
 		fmt.Println("Enter valid integer input")
 		return
 	}
-	err2 := accessSlice(slice, index)
-	if err2 != nil {
-		fmt.Println("Error Occured:", err2)
+	err = accessSlice(slice, index)
+	if err != nil {
+		fmt.Println("Error Occured:", err)
 	}
 }
